@@ -17,7 +17,7 @@ class HomeController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = UIColor.green
-        collectionView?.register(WordCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView?.register(UserCell.self, forCellWithReuseIdentifier: cellId)
         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
         collectionView?.register(UICollectionViewCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerId)
     }
@@ -51,7 +51,7 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     
     // cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 50)
+        return CGSize(width: view.frame.width, height: 150)
     }
     
     // header size
@@ -62,39 +62,6 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     // footer size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
         return CGSize(width: view.frame.width, height: 100)
-    }
-    
-}
-
-// cell class
-class WordCell: UICollectionViewCell {
-    
-    let wordLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Test Test Test"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupViews()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupViews() {
-        backgroundColor = UIColor.yellow
-        addSubview(wordLabel)
-        
-        NSLayoutConstraint.activate([
-            wordLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            wordLabel.rightAnchor.constraint(equalTo: self.rightAnchor),
-            wordLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            wordLabel.leftAnchor.constraint(equalTo: self.leftAnchor)
-        ])
     }
     
 }
