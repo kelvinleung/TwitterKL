@@ -108,3 +108,68 @@ class UserCell: UICollectionViewCell {
     }
     
 }
+
+class UserHeaderCell: UICollectionViewCell {
+    
+    let messageLabel: UILabel = {
+        let label = UILabel()
+        label.text = "WHO TO FOLLOW"
+        label.font = UIFont.systemFont(ofSize: 18)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupViews() {
+        addSubview(messageLabel)
+        
+        NSLayoutConstraint.activate([
+            messageLabel.topAnchor.constraint(equalTo: self.topAnchor),
+            messageLabel.rightAnchor.constraint(equalTo: self.rightAnchor),
+            messageLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            messageLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12)
+            ])
+    }
+    
+}
+
+class UserFooterCell: UICollectionViewCell {
+    
+    let messageLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Show me more"
+        label.font = UIFont.systemFont(ofSize: 16)
+        label.textColor = themeBlue
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        setupViews()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setupViews() {
+        addSubview(messageLabel)
+        
+        NSLayoutConstraint.activate([
+            messageLabel.topAnchor.constraint(equalTo: self.topAnchor),
+            messageLabel.rightAnchor.constraint(equalTo: self.rightAnchor),
+            messageLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            messageLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12)
+            ])
+    }
+    
+}
