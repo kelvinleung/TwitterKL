@@ -9,6 +9,7 @@
 import UIKit
 
 fileprivate let themeBlue = UIColor(red: 40 / 255, green: 120 / 255, blue: 180 / 255, alpha: 1)
+fileprivate let separatorLineColor = UIColor(red: 230 / 255, green: 230 / 255, blue: 230 / 255, alpha: 1)
 
 // cell class
 class UserCell: UICollectionViewCell {
@@ -64,6 +65,13 @@ class UserCell: UICollectionViewCell {
         return button
     }()
     
+    let separatorLine: UIView = {
+        let line = UIView()
+        line.backgroundColor = separatorLineColor
+        line.translatesAutoresizingMaskIntoConstraints = false
+        return line
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -74,11 +82,14 @@ class UserCell: UICollectionViewCell {
     }
     
     func setupViews() {
+        backgroundColor = UIColor.white
+        
         addSubview(profileImageView)
         addSubview(nameLabel)
         addSubview(usernameLabel)
         addSubview(bioTextView)
         addSubview(followButton)
+        addSubview(separatorLine)
         
         NSLayoutConstraint.activate([
             // profileImageView
@@ -103,7 +114,12 @@ class UserCell: UICollectionViewCell {
             followButton.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -12),
             followButton.widthAnchor.constraint(equalToConstant: 100),
             followButton.heightAnchor.constraint(equalToConstant: 36),
-            followButton.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor)
+            followButton.centerYAnchor.constraint(equalTo: profileImageView.centerYAnchor),
+            // separator line
+            separatorLine.rightAnchor.constraint(equalTo: self.rightAnchor),
+            separatorLine.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            separatorLine.leftAnchor.constraint(equalTo: self.leftAnchor),
+            separatorLine.heightAnchor.constraint(equalToConstant: 0.5)
             ])
     }
     
@@ -119,6 +135,13 @@ class UserHeaderCell: UICollectionViewCell {
         return label
     }()
     
+    let separatorLine: UIView = {
+        let line = UIView()
+        line.backgroundColor = separatorLineColor
+        line.translatesAutoresizingMaskIntoConstraints = false
+        return line
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -129,13 +152,22 @@ class UserHeaderCell: UICollectionViewCell {
     }
     
     func setupViews() {
+        backgroundColor = UIColor.white
+        
         addSubview(messageLabel)
+        addSubview(separatorLine)
         
         NSLayoutConstraint.activate([
+            // message label
             messageLabel.topAnchor.constraint(equalTo: self.topAnchor),
             messageLabel.rightAnchor.constraint(equalTo: self.rightAnchor),
             messageLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            messageLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12)
+            messageLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
+            // separator line
+            separatorLine.rightAnchor.constraint(equalTo: self.rightAnchor),
+            separatorLine.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            separatorLine.leftAnchor.constraint(equalTo: self.leftAnchor),
+            separatorLine.heightAnchor.constraint(equalToConstant: 0.5)
             ])
     }
     
@@ -152,6 +184,13 @@ class UserFooterCell: UICollectionViewCell {
         return label
     }()
     
+    let separatorLine: UIView = {
+        let line = UIView()
+        line.backgroundColor = separatorLineColor
+        line.translatesAutoresizingMaskIntoConstraints = false
+        return line
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -162,13 +201,22 @@ class UserFooterCell: UICollectionViewCell {
     }
     
     func setupViews() {
+        backgroundColor = UIColor.white
+        
         addSubview(messageLabel)
+        addSubview(separatorLine)
         
         NSLayoutConstraint.activate([
+            // message label
             messageLabel.topAnchor.constraint(equalTo: self.topAnchor),
             messageLabel.rightAnchor.constraint(equalTo: self.rightAnchor),
             messageLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            messageLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12)
+            messageLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
+            // separator line
+            separatorLine.rightAnchor.constraint(equalTo: self.rightAnchor),
+            separatorLine.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            separatorLine.leftAnchor.constraint(equalTo: self.leftAnchor),
+            separatorLine.heightAnchor.constraint(equalToConstant: 0.5)
             ])
     }
     
