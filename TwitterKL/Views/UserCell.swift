@@ -26,7 +26,6 @@ class UserCell: UICollectionViewCell {
     let nameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "Tracy Ho"
         label.font = UIFont.boldSystemFont(ofSize: 18)
         return label
     }()
@@ -34,7 +33,6 @@ class UserCell: UICollectionViewCell {
     let usernameLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "@tracy_ho"
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = UIColor.gray
         return label
@@ -43,7 +41,6 @@ class UserCell: UICollectionViewCell {
     let bioTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.text = "Do not mind anything that anyone tells you about anyone else. Judge everyone and everything for yourself."
         textView.font = UIFont.systemFont(ofSize: 16)
         // deal with the padding
         textView.textContainerInset = UIEdgeInsets.zero

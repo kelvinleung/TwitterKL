@@ -14,6 +14,11 @@ class HomeController: UICollectionViewController {
     let headerId = "headerId"
     let footerId = "footerId"
     
+    let users: [User] = {
+        let tracy = User(name: "Tracy Ho", username: "@tracy_ho", bioText: "Do not mind anything that anyone tells you about anyone else. Judge everyone and everything for yourself.")
+        return [tracy]
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView?.backgroundColor = UIColor(white: 0.95, alpha: 1)
@@ -24,12 +29,18 @@ class HomeController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return users.count
     }
     
     // dequeue cell
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        if let userCell = cell as? UserCell {
+            userCell.nameLabel.text = users[indexPath.row].name
+            userCell.usernameLabel.text = users[indexPath.row].username
+            userCell.bioTextView.text = users[indexPath.row].bioText
+            return userCell
+        }
         return cell
     }
     
