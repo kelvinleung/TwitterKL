@@ -15,8 +15,9 @@ class HomeController: UICollectionViewController {
     let footerId = "footerId"
     
     let users: [User] = {
-        let tracy = User(name: "Tracy Ho", username: "@tracy_ho", bioText: "Do not mind anything that anyone tells you about anyone else. Judge everyone and everything for yourself.")
-        return [tracy]
+        let tracy = User(name: "Tracy Ho", username: "@tracy_ho", bioText: "Do not mind anything that anyone tells you about anyone else. Judge everyone and everything for yourself.", profileImage: "profile")
+        let kelvin = User(name: "Kelvin Leung", username: "@kelvin_l", bioText: "The most difficult thing is the decision to act, the rest is merely tenacity. The fears are paper tigers. You can do anything you decide to do. You can act to change and control your life; and the procedure, the process is its own reward.", profileImage: "kprofile")
+        return [kelvin, tracy]
     }()
     
     override func viewDidLoad() {
@@ -39,6 +40,7 @@ class HomeController: UICollectionViewController {
             userCell.nameLabel.text = users[indexPath.row].name
             userCell.usernameLabel.text = users[indexPath.row].username
             userCell.bioTextView.text = users[indexPath.row].bioText
+            userCell.profileImageView.image = UIImage(named: users[indexPath.row].profileImage)
             return userCell
         }
         return cell
