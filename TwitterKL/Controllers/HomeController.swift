@@ -63,7 +63,24 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     
     // cell size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width, height: 150)
+        let bioTextWidth = view.frame.width - 12 - 50 - 8 - 12
+        let bioTextSize = CGSize(width: bioTextWidth, height: CGFloat.greatestFiniteMagnitude)
+        let bioText = users[indexPath.row].bioText
+        
+        let labelWidth = view.frame.width - 12 - 50 - 8 - 12 - 100 - 8
+        let labelSize = CGSize(width: labelWidth, height: CGFloat.greatestFiniteMagnitude)
+        let nameText = users[indexPath.row].name
+        let usernameText = users[indexPath.row].username
+        
+        let option = NSStringDrawingOptions.usesLineFragmentOrigin
+        
+        let estimatedBioTextFrame = NSString(string: bioText).boundingRect(with: bioTextSize, options: option, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 16)], context: nil)
+        let estimatedNameFrame = NSString(string: nameText).boundingRect(with: labelSize, options: option, attributes: [NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: 18)], context: nil)
+        let estimatedUsernameFrame = NSString(string: usernameText).boundingRect(with: labelSize, options: option, attributes: [NSAttributedStringKey.font: UIFont.systemFont(ofSize: 14)], context: nil)
+        
+        let estimatedHeight = 12 + estimatedNameFrame.height + 8 + estimatedUsernameFrame.height + 8 + estimatedBioTextFrame.height + 12
+        
+        return CGSize(width: view.frame.width, height: estimatedHeight)
     }
     
     // header size
