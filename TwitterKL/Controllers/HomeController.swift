@@ -29,6 +29,16 @@ class HomeController: UICollectionViewController {
         collectionView?.alwaysBounceVertical = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let image = UIImage()
+        navigationController?.navigationBar.shadowImage = image
+        navigationController?.navigationBar.setBackgroundImage(image, for: .default)
+        navigationController?.navigationBar.isTranslucent = false
+        navigationController?.navigationBar.backgroundColor = UIColor.white
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return users.count
     }
