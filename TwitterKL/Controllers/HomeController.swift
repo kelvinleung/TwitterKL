@@ -27,14 +27,19 @@ class HomeController: UICollectionViewController {
         collectionView?.register(UserHeaderCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerId)
         collectionView?.register(UserFooterCell.self, forSupplementaryViewOfKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerId)
         collectionView?.alwaysBounceVertical = true
+        setupNavBar()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    // TODO: - title view size not good
+    private func setupNavBar() {
+        let titleImage = UIImageView(image: UIImage(named: "twitter"))
+        titleImage.contentMode = .scaleAspectFit
+        titleImage.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        navigationItem.titleView = titleImage
         
-        let image = UIImage()
-        navigationController?.navigationBar.shadowImage = image
-        navigationController?.navigationBar.setBackgroundImage(image, for: .default)
+        let shadowImage = UIImage()
+        navigationController?.navigationBar.shadowImage = shadowImage
+        navigationController?.navigationBar.setBackgroundImage(shadowImage, for: .default)
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.backgroundColor = UIColor.white
     }
