@@ -35,7 +35,22 @@ class HomeController: UICollectionViewController {
         let titleImage = UIImageView(image: UIImage(named: "twitter"))
         titleImage.contentMode = .scaleAspectFit
         titleImage.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        
+        let followButton = UIButton(type: .system)
+        followButton.setImage(#imageLiteral(resourceName: "follow"), for: .normal)
+        followButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        
+        let searchButton = UIButton(type: .system)
+        searchButton.setImage(#imageLiteral(resourceName: "search"), for: .normal)
+        searchButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        
+        let composeButton = UIButton(type: .system)
+        composeButton.setImage(#imageLiteral(resourceName: "compose"), for: .normal)
+        composeButton.frame = CGRect(x: 0, y: 0, width: 34, height: 34)
+        
         navigationItem.titleView = titleImage
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: followButton)
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(customView: composeButton), UIBarButtonItem(customView: searchButton)]
         
         let shadowImage = UIImage()
         navigationController?.navigationBar.shadowImage = shadowImage
