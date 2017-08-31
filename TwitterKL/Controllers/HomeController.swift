@@ -119,21 +119,25 @@ extension HomeController: UICollectionViewDelegateFlowLayout {
     
     // header size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 50)
+        if section == 0 {
+            return CGSize(width: view.frame.width, height: 50)
+        } else {
+            return CGSize.zero
+        }
     }
     
     // footer size
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: view.frame.width, height: 50)
+        if section == 0 {
+            return CGSize(width: view.frame.width, height: 70)
+        } else {
+            return CGSize.zero
+        }
     }
     
     // spacing between lines
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsetsMake(0, 0, 20, 0)
     }
     
 }

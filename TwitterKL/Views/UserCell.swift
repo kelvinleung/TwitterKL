@@ -188,6 +188,13 @@ class UserFooterCell: UICollectionViewCell {
         return line
     }()
     
+    let footerBackgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor.white
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -198,16 +205,22 @@ class UserFooterCell: UICollectionViewCell {
     }
     
     func setupViews() {
-        backgroundColor = UIColor.white
+        backgroundColor = UIColor.clear
         
+        addSubview(footerBackgroundView)
         addSubview(messageLabel)
         addSubview(separatorLine)
         
         NSLayoutConstraint.activate([
+            // footer background view
+            footerBackgroundView.topAnchor.constraint(equalTo: self.topAnchor),
+            footerBackgroundView.rightAnchor.constraint(equalTo: self.rightAnchor),
+            footerBackgroundView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
+            footerBackgroundView.leftAnchor.constraint(equalTo: self.leftAnchor),
             // message label
             messageLabel.topAnchor.constraint(equalTo: self.topAnchor),
             messageLabel.rightAnchor.constraint(equalTo: self.rightAnchor),
-            messageLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            messageLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -20),
             messageLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
             // separator line
             separatorLine.rightAnchor.constraint(equalTo: self.rightAnchor),
